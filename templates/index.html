@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard with Python Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Weather Dashboard</h1>
+            <div class="search-container">
+                <input type="text" id="cityInput" placeholder="Enter city name...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+        </header>
+
+        <!-- Main Weather Display -->
+        <main class="main-content">
+            <!-- Current Weather -->
+            <section class="current-weather" id="currentWeather">
+                <div class="weather-card">
+                    <div class="location">
+                        <h2 id="cityName">--</h2>
+                        <p id="dateTime">--</p>
+                    </div>
+                    <div class="weather-info">
+                        <div class="temperature">
+                            <span id="temperature">--</span>°C
+                        </div>
+                        <div class="weather-description">
+                            <i id="weatherIcon" class="fas fa-cloud"></i>
+                            <span id="weatherDesc">--</span>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail">
+                            <i class="fas fa-tint"></i>
+                            <span>Humidity: <span id="humidity">--</span>%</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-wind"></i>
+                            <span>Wind: <span id="windSpeed">--</span> km/h</span>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-eye"></i>
+                            <span>Visibility: <span id="visibility">--</span> km</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Forecast -->
+            <section class="forecast" id="forecast">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast cards will be populated here -->
+                </div>
+            </section>
+
+            <!-- Weather Statistics -->
+            <section class="statistics">
+                <h3>Weather Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Temperature Range</h4>
+                        <p>High: <span id="maxTemp">--</span>°C</p>
+                        <p>Low: <span id="minTemp">--</span>°C</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>Average Conditions</h4>
+                        <p>Avg Temp: <span id="avgTemp">--</span>°C</p>
+                        <p>Avg Humidity: <span id="avgHumidity">--</span>%</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Chatbot -->
+        <div class="chatbot-container">
+            <div class="chatbot-toggle" id="chatbotToggle">
+                <i class="fas fa-comments"></i>
+            </div>
+            <div class="chatbot" id="chatbot">
+                <div class="chatbot-header">
+                    <h3><i class="fas fa-robot"></i> AI Weather Assistant</h3>
+                    <button class="close-btn" id="closeChatbot">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <p>🤖 Hello! I'm your AI weather assistant. I can help you with:</p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Weather planning and recommendations</li>
+                            <li>Packing suggestions for trips</li>
+                            <li>Outdoor activity recommendations</li>
+                            <li>Temperature and humidity analysis</li>
+                            <li>Rain forecasts and umbrella advice</li>
+                        </ul>
+                        <p>Try asking: "Do I need an umbrella?" or "What's the best day for outdoor activities?"</p>
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask about the weather...">
+                    <button id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html> 
